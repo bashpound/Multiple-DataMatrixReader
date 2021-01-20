@@ -34,7 +34,7 @@ public class App  {
     public static void main( String[] args ) throws Exception{
     	
     	
-    	
+    	/*
     	InputStream fis = new FileInputStream("C:/datamatrix/grid/matrix_22_white.png");
     	BufferedImage bufferedImage = ImageIO.read(fis);
     	BufferedImageLuminanceSource bils = new BufferedImageLuminanceSource(bufferedImage);
@@ -59,7 +59,7 @@ public class App  {
     	
     	
     	
-    	/*
+    	
     	Detector detector = new Detector(fromImage);
     	DetectorResult detectorResult = detector.detect();
     	BitMatrix fromImagebitMatrix = detectorResult.getBits();
@@ -70,6 +70,9 @@ public class App  {
 		System.out.println(outText);
 		*/
     	
+    	System.out.println("매트릭스 생성 시작");
+    	MatrixGenerator.WriteMatrixToImage(2, "ui");
+    	System.out.println("매트릭스 생성 완료");
     	
     }
     

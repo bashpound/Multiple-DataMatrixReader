@@ -32,14 +32,14 @@ public class MatrixGenerator {
 	
 	public static void WriteMatrixToImage(int sizeOfMatrix, String unitString) throws IOException{
 		DataMatrixWriter writer = new DataMatrixWriter();
-		int imgX = 4096;
-		int imgY = 8192;
-		int codeSize = 800;
+		int imgX = 8000;
+		int imgY = 8000;
+		int codeSize = 1600;
 		int offSetX = imgX/sizeOfMatrix;
 		int offSetY = imgY/sizeOfMatrix;
 		
 		String fileString = unitString;
-		File fout = new File(String.format("c:/datamatrix/grid/%s.png", fileString));
+		File fout = new File(String.format("c:/datamatrix/grid/scientific/%s.png", fileString));
 		BufferedImage bufferedImage = new BufferedImage(imgX, imgY, BufferedImage.TYPE_INT_RGB);
 		
 		Graphics2D graphics = (Graphics2D) bufferedImage.getGraphics();
@@ -51,7 +51,7 @@ public class MatrixGenerator {
 				
 				BitMatrix bitMatrix = writer.encode(unitString+i+""+j, BarcodeFormat.DATA_MATRIX, codeSize, codeSize);
 				BufferedImage temp = MatrixToImageWriter.toBufferedImage(bitMatrix);
-				graphics.setPaint(Color.gray);
+				graphics.setPaint(Color.white);
 				graphics.fillRect(codeSize*i*2+offSetX/2-50, codeSize*2*j+offSetY-50, codeSize+100, codeSize+100);
 				graphics.drawImage(temp, codeSize*i*2+offSetX/2, codeSize*2*j+offSetY, null);
 				
